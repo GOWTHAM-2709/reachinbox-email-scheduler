@@ -2,6 +2,7 @@ import app from './app';
 import { config } from './config/env';
 import prisma from './config/db';
 import { initElasticsearch } from './config/elasticsearch';
+import './queues/email.worker';
 
 const startServer = async () => {
   try {
