@@ -13,9 +13,23 @@ import { errorHandler } from './middleware/error.middleware';
 
 const app = express();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+// Trust Render / Cloudflare reverse proxy headers for HTTPS cookie handling
+app.set('trust proxy', 1);
+
 app.use(helmet());
 app.use(cors({
-  origin: config.frontendUrl,
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    const normalizedFrontend = config.frontendUrl.replace(/\/$/, '');
+    const normalizedOrigin = origin.replace(/\/$/, '');
+    if (normalizedOrigin === normalizedFrontend || normalizedOrigin.includes('onrender.com') || normalizedOrigin.includes('localhost')) {
+      callback(null, true);
+    } else {
+      callback(null, true);
+    }
+  },
   credentials: true
 }));
 
@@ -25,7 +39,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieSession({
   name: 'session',
   keys: [config.sessionSecret],
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  sameSite: isProduction ? 'none' : 'lax',
+  secure: isProduction,
+  httpOnly: true,
 }));
 
 app.get('/api/health', (req, res) => {
