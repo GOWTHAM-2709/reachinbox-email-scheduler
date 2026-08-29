@@ -24,24 +24,24 @@ export const Landing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-mesh-canvas text-slate-900 dark:text-slate-100 flex flex-col selection:bg-blue-500 selection:text-white relative overflow-x-hidden transition-colors duration-200">
-      {/* Background Ambient Glow Spheres */}
-      <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-500/10 dark:bg-blue-600/20 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-[600px] right-[-100px] w-[500px] h-[400px] bg-indigo-500/10 dark:bg-indigo-600/15 blur-[120px] rounded-full pointer-events-none -z-10" />
+    <div className="min-h-screen bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-slate-100 flex flex-col selection:bg-blue-600 selection:text-white relative overflow-x-hidden transition-colors duration-200">
+      {/* Background Ambient Glow Accents */}
+      <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-400/15 dark:bg-blue-600/20 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-[600px] right-[-100px] w-[500px] h-[400px] bg-indigo-400/10 dark:bg-indigo-600/15 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       {/* Navigation Header */}
-      <header className="sticky top-0 z-40 glass-panel border-b border-slate-200/80 dark:border-slate-800/80">
+      <header className="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/25">
-              <Mail className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/25">
+              <Mail className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+            <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
               ReachInbox
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
             <a href="#features" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Features</a>
             <a href="#architecture" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Architecture</a>
             <a href="#workflow" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">How It Works</a>
@@ -56,7 +56,7 @@ export const Landing = () => {
                 </Button>
               </Link>
             ) : (
-              <Button onClick={handleGoogleLogin} variant="glass" size="sm">
+              <Button onClick={handleGoogleLogin} variant="primary" size="sm">
                 Sign In
               </Button>
             )}
@@ -67,15 +67,15 @@ export const Landing = () => {
       {/* Hero Section */}
       <section className="relative pt-16 pb-14 md:pt-24 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         {/* Release Pill Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 text-blue-700 dark:text-blue-400 backdrop-blur-md mb-8 animate-in shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 text-blue-700 dark:text-blue-400 mb-8 animate-in shadow-sm">
+          <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
           <span>Distributed Email Orchestration Engine</span>
         </div>
 
         {/* Hero Title */}
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-[1.1] mb-6">
           High-Throughput Email Scheduling With{' '}
-          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent">
+          <span className="text-blue-600 dark:text-blue-400">
             Distributed Rate Limiting
           </span>
         </h1>
@@ -100,80 +100,78 @@ export const Landing = () => {
           )}
           <a href="#features" className="w-full sm:w-auto">
             <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-              Explore Architecture
+              Explore Features
             </Button>
           </a>
         </div>
 
         {/* Live Interactive Architecture Mockup Card */}
-        <div className="relative max-w-5xl mx-auto rounded-3xl glass-panel p-2 sm:p-4 shadow-xl border border-slate-200/80 dark:border-slate-700/60 animate-float">
-          <div className="rounded-2xl bg-slate-900 text-white p-5 sm:p-7 text-left overflow-hidden shadow-2xl">
-            {/* Top Bar */}
-            <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-rose-500"></span>
-                <span className="w-3 h-3 rounded-full bg-amber-500"></span>
-                <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
-                <span className="text-xs text-slate-400 ml-2 font-mono">cluster://reachinbox-bullmq-worker</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                  Worker Active &bull; 5x Concurrency
-                </span>
-              </div>
+        <div id="architecture" className="relative max-w-5xl mx-auto rounded-3xl bg-white dark:bg-slate-900/90 p-3 sm:p-5 shadow-2xl border border-slate-200 dark:border-slate-800 animate-float text-left">
+          {/* Top Bar */}
+          <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100 dark:border-slate-800">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-rose-500"></span>
+              <span className="w-3 h-3 rounded-full bg-amber-500"></span>
+              <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 font-mono">cluster://reachinbox-bullmq-worker</span>
             </div>
-
-            {/* Architecture Metrics Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80">
-                <p className="text-xs text-slate-400 font-medium">Rate Limiting Window</p>
-                <p className="text-xl font-bold text-white mt-1">100 / hr</p>
-                <span className="text-[11px] text-blue-400 flex items-center gap-1 mt-1">
-                  <Zap className="w-3 h-3" /> Redis sliding-window
-                </span>
-              </div>
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80">
-                <p className="text-xs text-slate-400 font-medium">Minimum Inter-Send Delay</p>
-                <p className="text-xl font-bold text-white mt-1">2.0s</p>
-                <span className="text-[11px] text-indigo-400 flex items-center gap-1 mt-1">
-                  <Clock className="w-3 h-3" /> Anti-burst protection
-                </span>
-              </div>
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80">
-                <p className="text-xs text-slate-400 font-medium">Slack Alert Integration</p>
-                <p className="text-xl font-bold text-white mt-1">Live OAuth</p>
-                <span className="text-[11px] text-emerald-400 flex items-center gap-1 mt-1">
-                  <CheckCircle2 className="w-3 h-3" /> Deduplicated alerts
-                </span>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 font-semibold">
+                Worker Active &bull; 5x Concurrency
+              </span>
             </div>
+          </div>
 
-            {/* Mock Queue Items Preview */}
-            <div className="space-y-2 font-mono text-xs">
-              <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 flex items-center justify-between text-slate-300">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span className="text-slate-400">JOB #1042</span>
-                  <span className="text-white truncate">campaign_dispatch &bull; user@enterprise.io</span>
-                </div>
-                <span className="text-emerald-400 flex-shrink-0">SENT (200 OK)</span>
+          {/* Architecture Metrics Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">Rate Limiting Window</p>
+              <p className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">100 / hr</p>
+              <span className="text-xs text-blue-600 dark:text-blue-400 flex items-center gap-1 mt-1 font-medium">
+                <Zap className="w-3.5 h-3.5" /> Redis sliding-window
+              </span>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">Minimum Inter-Send Delay</p>
+              <p className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">2.0s</p>
+              <span className="text-xs text-indigo-600 dark:text-indigo-400 flex items-center gap-1 mt-1 font-medium">
+                <Clock className="w-3.5 h-3.5" /> Anti-burst protection
+              </span>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">Slack Alert Integration</p>
+              <p className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Live OAuth</p>
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 flex items-center gap-1 mt-1 font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5" /> Deduplicated alerts
+              </span>
+            </div>
+          </div>
+
+          {/* Mock Queue Items Preview */}
+          <div className="space-y-2 font-mono text-xs">
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+              <div className="flex items-center gap-2.5 truncate">
+                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span className="text-slate-500 font-semibold">JOB #1042</span>
+                <span className="text-slate-900 dark:text-white font-medium truncate">campaign_dispatch &bull; user@enterprise.io</span>
               </div>
-              <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 flex items-center justify-between text-slate-300">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
-                  <span className="text-slate-400">JOB #1043</span>
-                  <span className="text-white truncate">campaign_dispatch &bull; leads@venture.co</span>
-                </div>
-                <span className="text-blue-400 flex-shrink-0">PROCESSING</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex-shrink-0">SENT (200 OK)</span>
+            </div>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+              <div className="flex items-center gap-2.5 truncate">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+                <span className="text-slate-500 font-semibold">JOB #1043</span>
+                <span className="text-slate-900 dark:text-white font-medium truncate">campaign_dispatch &bull; leads@venture.co</span>
               </div>
-              <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 flex items-center justify-between text-slate-300">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                  <span className="text-slate-400">JOB #1044</span>
-                  <span className="text-white truncate">campaign_dispatch &bull; growth@tech.inc</span>
-                </div>
-                <span className="text-amber-400 flex-shrink-0">SCHEDULED (+2s delay)</span>
+              <span className="text-blue-600 dark:text-blue-400 font-bold flex-shrink-0">PROCESSING</span>
+            </div>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+              <div className="flex items-center gap-2.5 truncate">
+                <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span className="text-slate-500 font-semibold">JOB #1044</span>
+                <span className="text-slate-900 dark:text-white font-medium truncate">campaign_dispatch &bull; growth@tech.inc</span>
               </div>
+              <span className="text-amber-600 dark:text-amber-400 font-bold flex-shrink-0">SCHEDULED (+2s delay)</span>
             </div>
           </div>
         </div>
@@ -182,76 +180,76 @@ export const Landing = () => {
       {/* Core Features Grid Section */}
       <section id="features" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
+          <h2 className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
             Engineered for Reliability
           </h2>
-          <p className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Everything You Need for Enterprise Outbound Automation
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Feature 1 */}
-          <div className="p-6 rounded-2xl glass-card glass-card-hover">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 flex items-center justify-center mb-5">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30 flex items-center justify-center mb-5">
               <Zap className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">BullMQ Concurrency Engine</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">BullMQ Concurrency Engine</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Atomic state transitions (`scheduled` $\rightarrow$ `processing` $\rightarrow$ `sent`) ensure zero duplicate emails even under high worker concurrency.
             </p>
           </div>
 
           {/* Feature 2 */}
-          <div className="p-6 rounded-2xl glass-card glass-card-hover">
-            <div className="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/30 flex items-center justify-center mb-5">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/30 flex items-center justify-center mb-5">
               <Clock className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Sliding-Window Rate Limiting</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Sliding-Window Rate Limiting</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Enforce hourly email caps per sender. When limits are reached, excess jobs are seamlessly rescheduled to the next hour window.
             </p>
           </div>
 
           {/* Feature 3 */}
-          <div className="p-6 rounded-2xl glass-card glass-card-hover">
-            <div className="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-600/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-center mb-5">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-600/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-center mb-5">
               <BarChart3 className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Real-Time Slack Alerts</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Real-Time Slack Alerts</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Full OAuth v2 integration connects your team workspace. Rate-limit triggers dispatch rich alerts with automatic 1-hour deduplication.
             </p>
           </div>
 
           {/* Feature 4 */}
-          <div className="p-6 rounded-2xl glass-card glass-card-hover">
-            <div className="w-12 h-12 rounded-xl bg-cyan-100 dark:bg-cyan-600/20 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center mb-5">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-600/20 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/30 flex items-center justify-center mb-5">
               <Search className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Elasticsearch & SQL Search</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Elasticsearch & SQL Search</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Full-text keyword querying across recipient addresses, email subject lines, and body content with sub-millisecond search performance.
             </p>
           </div>
 
           {/* Feature 5 */}
-          <div className="p-6 rounded-2xl glass-card glass-card-hover">
-            <div className="w-12 h-12 rounded-xl bg-violet-100 dark:bg-violet-600/20 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-500/30 flex items-center justify-center mb-5">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-violet-50 dark:bg-violet-600/20 text-violet-600 dark:text-violet-400 border border-violet-200 dark:border-violet-500/30 flex items-center justify-center mb-5">
               <Layers className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Bulk CSV Ingestion</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Bulk CSV Ingestion</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Drag-and-drop CSV recipient lists with automatic duplicate removal, format validation, and batch job enrollment.
             </p>
           </div>
 
           {/* Feature 6 */}
-          <div className="p-6 rounded-2xl glass-card glass-card-hover">
-            <div className="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-600/20 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-500/30 flex items-center justify-center mb-5">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-600/20 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-500/30 flex items-center justify-center mb-5">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">OAuth 2.0 & Session Security</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">OAuth 2.0 & Session Security</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Google OAuth authentication backed by encrypted HTTP-only session cookies with strict cross-domain reverse proxy support.
             </p>
@@ -259,43 +257,43 @@ export const Landing = () => {
         </div>
       </section>
 
-      {/* How It Works / Workflow Section */}
-      <section id="workflow" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800/60">
+      {/* How It Works Section */}
+      <section id="workflow" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
+          <h2 className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
             Execution Pipeline
           </h2>
-          <p className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <p className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             How Emails Are Scheduled & Delivered
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-left">
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm mb-4">
               1
             </span>
-            <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-2">Upload & Configure</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Upload & Configure</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Provide recipient CSV, write subject & body, and set hourly sending rate and inter-email delays.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm text-left">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-left">
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-600 text-white font-bold text-sm mb-4">
               2
             </span>
-            <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-2">Queue & Throttle</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Queue & Throttle</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               BullMQ delayed jobs enqueue in Redis. Sliding-window counters enforce rate caps and prevent ESP blocks.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm text-left">
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-left">
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-sm mb-4">
               3
             </span>
-            <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-2">Dispatch & Alert</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Dispatch & Alert</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Emails dispatch via SMTP, live delivery status logs to database, and Slack notifies on rate limit triggers.
             </p>
@@ -305,23 +303,23 @@ export const Landing = () => {
 
       {/* CTA Banner */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
-        <div className="rounded-3xl p-8 sm:p-12 glass-panel border border-blue-200 dark:border-blue-500/20 bg-gradient-to-b from-blue-50/80 to-white dark:from-blue-950/40 dark:to-slate-950/80 shadow-xl">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-4">
+        <div className="rounded-3xl p-8 sm:p-12 bg-blue-600 text-white shadow-xl">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
             Ready to Automate Your Cold Email Outbound?
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto mb-8">
+          <p className="text-sm sm:text-base text-blue-100 max-w-xl mx-auto mb-8 font-normal">
             Experience reliable, rate-limited email delivery with production-grade monitoring.
           </p>
-          <Button onClick={handleGoogleLogin} variant="primary" size="lg">
+          <Button onClick={handleGoogleLogin} variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-blue-50 border-none font-bold">
             Sign In with Google <ArrowRight className="w-5 h-5 ml-1" />
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
+      <footer className="border-t border-slate-200 dark:border-slate-800 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 font-medium text-slate-700 dark:text-slate-400">
+          <div className="flex items-center gap-2 font-semibold text-slate-700 dark:text-slate-400">
             <Mail className="w-4 h-4 text-blue-600" />
             <span>ReachInbox Email Scheduler &bull; Production Platform</span>
           </div>

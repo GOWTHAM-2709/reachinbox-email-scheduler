@@ -16,8 +16,8 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-mesh-login text-slate-900 dark:text-slate-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-blue-500 selection:text-white transition-colors duration-200">
-      {/* Ambient Pulsing Spheres */}
+    <div className="min-h-screen bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-blue-600 selection:text-white transition-colors duration-200">
+      {/* Ambient Pulsing Glow Spheres */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/25 blur-[120px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-600/20 blur-[130px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
 
@@ -25,7 +25,7 @@ export const Login = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md mb-6 flex items-center justify-between">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors group"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Back to Landing Page</span>
@@ -35,8 +35,8 @@ export const Login = () => {
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         {/* Brand Mark */}
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-blue-500 text-white shadow-lg shadow-blue-500/25 mb-5 p-0.5 animate-in">
-          <div className="w-full h-full bg-white/20 dark:bg-slate-950/40 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-500/25 mb-5 p-0.5 animate-in">
+          <div className="w-full h-full rounded-2xl flex items-center justify-center">
             <Mail className="w-7 h-7 text-white" />
           </div>
         </div>
@@ -44,18 +44,18 @@ export const Login = () => {
         <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
           Welcome to ReachInbox
         </h1>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xs mx-auto">
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xs mx-auto font-normal">
           Intelligent, rate-limited email scheduling & delivery platform
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        {/* Glassmorphism Auth Card */}
-        <div className="glass-panel rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200/80 dark:border-white/10 backdrop-blur-xl animate-in">
+        {/* Auth Card */}
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 dark:border-slate-800 animate-in">
           <div className="space-y-6">
             <button
               onClick={handleGoogleLogin}
-              className="w-full flex items-center justify-between px-5 py-3.5 border border-slate-200 dark:border-white/20 rounded-2xl shadow-sm bg-white hover:bg-slate-50 dark:hover:bg-slate-100 text-slate-800 text-sm font-semibold transition-all duration-200 active:scale-[0.98] group"
+              className="w-full flex items-center justify-between px-5 py-3.5 border border-slate-300 dark:border-slate-700 rounded-2xl shadow-sm bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-sm font-semibold transition-all duration-200 active:scale-[0.98] group"
             >
               <div className="flex items-center gap-3">
                 <svg className="h-5 w-5" viewBox="0 0 24 24">
@@ -81,22 +81,22 @@ export const Login = () => {
               <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
             </button>
 
-            <div className="pt-5 border-t border-slate-200 dark:border-slate-800">
+            <div className="pt-5 border-t border-slate-100 dark:border-slate-800">
               <div className="grid grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-400">
-                <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                  <span>OAuth 2.0 Secure</span>
+                  <span className="font-medium">OAuth 2.0 Secure</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
                   <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                  <span>BullMQ Engine</span>
+                  <span className="font-medium">BullMQ Engine</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="mt-8 text-center text-xs text-slate-500">
+        <p className="mt-8 text-center text-xs text-slate-500 font-medium">
           ReachInbox Email Scheduler &bull; Enterprise Outbound Platform
         </p>
       </div>
