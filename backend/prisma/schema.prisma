@@ -1,0 +1,66 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id               String            @id @default(uuid())
+  googleId         String            @unique
+  name             String
+  email            String            @unique
+  avatar           String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  campaigns        Campaign[]
+  slackConnections SlackConnection[]
+
+  @@index([googleId])
+  @@index([email])
+}
+
+model Campaign {
+  id                 String   @id @default(uuid())
+  userId             String
+  subject            String
+  body               String
+  startTime          DateTime
+  delayBetweenEmails Int      // Minimum delay between emails in seconds
+  hourlyLimit        Int
+  createdAt          DateTime @default(now())
+  user               User     @relation(fields: [userId], references: [id])
+  emails             Email[]
+
+  @@index([userId])
+}
+
+model Email {
+  id          String    @id @default(uuid())
+  campaignId  String
+  recipient   String
+  subject     String
+  body        String
+  scheduledAt DateTime
+  sentAt      DateTime?
+  status      String    @default("scheduled") // scheduled, processing, sent, failed
+  attempts    Int       @default(0)
+  messageId   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  campaign    Campaign  @relation(fields: [campaignId], references: [id])
+
+  @@index([status])
+  @@index([scheduledAt])
+  @@index([recipient])
+}
+
+model SlackConnection {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  accessToken String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+}
