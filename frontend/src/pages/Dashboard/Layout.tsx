@@ -51,22 +51,22 @@ export const DashboardLayout = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-mesh-canvas text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-500 selection:text-white transition-colors duration-200">
-      {/* Top Glass Navigation Bar */}
+    <div className="min-h-screen bg-mesh-canvas text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-500 selection:text-white transition-colors duration-200 overflow-x-hidden">
+      {/* Top Navigation Bar */}
       <header className="sticky top-0 z-40 glass-panel border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Brand Logo */}
-            <div className="flex items-center gap-3">
-              <Link to="/" className="flex items-center gap-2.5 group">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
-                  <Mail className="w-5 h-5" />
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform flex-shrink-0">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+                <div className="flex flex-col min-w-0">
+                  <span className="text-sm sm:text-base font-bold tracking-tight text-slate-900 dark:text-white leading-tight truncate">
                     ReachInbox
                   </span>
-                  <span className="text-[10px] text-blue-600 dark:text-blue-400 font-medium leading-tight">
+                  <span className="text-[10px] text-blue-600 dark:text-blue-400 font-medium leading-tight truncate">
                     Email Scheduler
                   </span>
                 </div>
@@ -163,11 +163,12 @@ export const DashboardLayout = () => {
             </div>
 
             {/* Mobile Header Controls */}
-            <div className="sm:hidden flex items-center gap-2">
+            <div className="sm:hidden flex items-center gap-1.5">
               <ThemeToggle />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -179,16 +180,16 @@ export const DashboardLayout = () => {
         {isMobileMenuOpen && (
           <div className="sm:hidden p-4 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl space-y-3 animate-in shadow-xl">
             {/* User Profile in Mobile */}
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 min-w-0">
               {user.avatar ? (
-                <img src={user.avatar} alt="Avatar" className="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600" />
+                <img src={user.avatar} alt="Avatar" className="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex-shrink-0" />
               ) : (
-                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-600/30 text-blue-700 dark:text-blue-400 flex items-center justify-center text-xs font-bold">
+                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-600/30 text-blue-700 dark:text-blue-400 flex items-center justify-center text-xs font-bold flex-shrink-0">
                   {(user.name || 'U').charAt(0).toUpperCase()}
                 </div>
               )}
-              <div className="truncate">
-                <p className="text-xs font-semibold text-slate-900 dark:text-white">{user.name}</p>
+              <div className="truncate min-w-0 flex-1">
+                <p className="text-xs font-semibold text-slate-900 dark:text-white truncate">{user.name}</p>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{user.email}</p>
               </div>
             </div>
@@ -218,12 +219,12 @@ export const DashboardLayout = () => {
             <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
               {user.slackConnected ? (
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+                  <span className="text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5 font-medium">
                     <CheckCircle2 className="w-4 h-4" /> Slack Connected
                   </span>
                   <button
                     onClick={handleSlackDisconnect}
-                    className="text-xs text-rose-600 dark:text-rose-400 hover:underline"
+                    className="text-xs text-rose-600 dark:text-rose-400 hover:underline font-medium"
                   >
                     Disconnect
                   </button>
@@ -250,12 +251,12 @@ export const DashboardLayout = () => {
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
         {/* Page Header Bar with Action CTA */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                 Email Orchestration
               </h1>
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">
@@ -267,7 +268,7 @@ export const DashboardLayout = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <Button
               onClick={() => setIsComposeOpen(true)}
               variant="primary"

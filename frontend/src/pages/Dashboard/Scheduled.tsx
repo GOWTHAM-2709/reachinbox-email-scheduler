@@ -27,7 +27,7 @@ export const ScheduledEmails = () => {
 
   if (error) {
     return (
-      <div className="p-8 text-center">
+      <div className="p-6 sm:p-8 text-center">
         <div className="mx-auto w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-500/20 flex items-center justify-center mb-3">
           <AlertCircle className="w-6 h-6" />
         </div>
@@ -101,17 +101,19 @@ export const ScheduledEmails = () => {
       {/* Mobile Card View */}
       <div className="sm:hidden divide-y divide-slate-100 dark:divide-slate-800/80">
         {emails.map((email: any) => (
-          <div key={email.id} className="p-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 truncate">
+          <div key={email.id} className="p-3.5 space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2 truncate min-w-0 flex-1">
                 <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
                 <span className="text-xs font-semibold text-slate-900 dark:text-white truncate">{email.recipient}</span>
               </div>
-              <Badge status={email.status} />
+              <div className="flex-shrink-0">
+                <Badge status={email.status} />
+              </div>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-300 truncate">{email.subject}</p>
+            <p className="text-xs text-slate-600 dark:text-slate-300 break-words">{email.subject}</p>
             <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500">
-              <Calendar className="w-3 h-3" />
+              <Calendar className="w-3 h-3 flex-shrink-0" />
               <span>{format(new Date(email.scheduledAt), 'MMM d, yyyy · HH:mm:ss')}</span>
             </div>
           </div>

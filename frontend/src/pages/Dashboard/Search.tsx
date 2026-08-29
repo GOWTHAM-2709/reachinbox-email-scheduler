@@ -36,11 +36,11 @@ export const Search = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6">
+    <div className="p-3.5 sm:p-6">
       {/* Search Input Bar */}
-      <form onSubmit={handleSearch} className="mb-6 max-w-2xl">
-        <div className="flex gap-2">
-          <div className="relative flex-1">
+      <form onSubmit={handleSearch} className="mb-4 sm:mb-6 max-w-2xl">
+        <div className="flex flex-col sm:flex-row gap-2">
+          <div className="relative flex-1 min-w-0">
             <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
               <SearchIcon className="h-4 w-4" />
             </div>
@@ -61,14 +61,14 @@ export const Search = () => {
               </button>
             )}
           </div>
-          <Button type="submit" isLoading={loading} size="md">
+          <Button type="submit" isLoading={loading} size="md" className="w-full sm:w-auto">
             Search
           </Button>
         </div>
       </form>
 
       {error && (
-        <div className="p-4 mb-4 rounded-xl bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-sm border border-rose-200 dark:border-rose-500/20">
+        <div className="p-3.5 sm:p-4 mb-4 rounded-xl bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs sm:text-sm border border-rose-200 dark:border-rose-500/20">
           {error}
         </div>
       )}
@@ -148,12 +148,14 @@ export const Search = () => {
           {/* Mobile Card List View */}
           <div className="sm:hidden divide-y divide-slate-100 dark:divide-slate-800">
             {emails.map((email: any) => (
-              <div key={email.id} className="p-4 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white truncate">{email.recipient}</span>
-                  <Badge status={email.status} />
+              <div key={email.id} className="p-3.5 space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-semibold text-slate-900 dark:text-white truncate min-w-0 flex-1">{email.recipient}</span>
+                  <div className="flex-shrink-0">
+                    <Badge status={email.status} />
+                  </div>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-300 truncate">{email.subject}</p>
+                <p className="text-xs text-slate-600 dark:text-slate-300 break-words">{email.subject}</p>
                 <span className="text-[11px] text-slate-500 dark:text-slate-400 block">
                   {email.sentAt
                     ? format(new Date(email.sentAt), 'MMM d, yyyy · HH:mm')

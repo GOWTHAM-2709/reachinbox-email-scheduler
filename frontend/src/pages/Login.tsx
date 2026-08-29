@@ -16,7 +16,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-blue-600 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-8 sm:py-12 px-3 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-blue-600 selection:text-white transition-colors duration-200">
       {/* Ambient Pulsing Glow Spheres */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/25 blur-[120px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-600/20 blur-[130px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
@@ -25,7 +25,7 @@ export const Login = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md mb-6 flex items-center justify-between">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors group"
+          className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Back to Landing Page</span>
@@ -35,30 +35,30 @@ export const Login = () => {
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         {/* Brand Mark */}
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-500/25 mb-5 p-0.5 animate-in">
+        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-500/25 mb-4 sm:mb-5 p-0.5 animate-in">
           <div className="w-full h-full rounded-2xl flex items-center justify-center">
-            <Mail className="w-7 h-7 text-white" />
+            <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
           </div>
         </div>
 
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
           Welcome to ReachInbox
         </h1>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xs mx-auto font-normal">
+        <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xs mx-auto font-normal">
           Intelligent, rate-limited email scheduling & delivery platform
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="mt-6 sm:mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         {/* Auth Card */}
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 dark:border-slate-800 animate-in">
-          <div className="space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-xl border border-slate-200 dark:border-slate-800 animate-in">
+          <div className="space-y-5 sm:space-y-6">
             <button
               onClick={handleGoogleLogin}
-              className="w-full flex items-center justify-between px-5 py-3.5 border border-slate-300 dark:border-slate-700 rounded-2xl shadow-sm bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-sm font-semibold transition-all duration-200 active:scale-[0.98] group"
+              className="w-full flex items-center justify-between px-3.5 sm:px-5 py-3 sm:py-3.5 border border-slate-300 dark:border-slate-700 rounded-2xl shadow-sm bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-[0.98] group"
             >
-              <div className="flex items-center gap-3">
-                <svg className="h-5 w-5" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <svg className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" viewBox="0 0 24 24">
                   <path
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                     fill="#4285F4"
@@ -78,11 +78,11 @@ export const Login = () => {
                 </svg>
                 <span>Continue with Google</span>
               </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
             </button>
 
-            <div className="pt-5 border-t border-slate-100 dark:border-slate-800">
-              <div className="grid grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-400">
+            <div className="pt-4 sm:pt-5 border-t border-slate-100 dark:border-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-xs text-slate-600 dark:text-slate-400">
                 <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   <span className="font-medium">OAuth 2.0 Secure</span>
@@ -96,7 +96,7 @@ export const Login = () => {
           </div>
         </div>
 
-        <p className="mt-8 text-center text-xs text-slate-500 font-medium">
+        <p className="mt-6 sm:mt-8 text-center text-xs text-slate-500 font-medium">
           ReachInbox Email Scheduler &bull; Enterprise Outbound Platform
         </p>
       </div>
