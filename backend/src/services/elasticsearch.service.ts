@@ -2,10 +2,10 @@ import esClient from '../config/elasticsearch';
 
 export const indexEmail = async (email: any) => {
   try {
-    await (esClient.index as any)({
+    await esClient.index({
       index: 'emails',
       id: email.id,
-      body: {
+      document: {
         id: email.id,
         campaignId: email.campaignId,
         recipient: email.recipient,
@@ -16,8 +16,8 @@ export const indexEmail = async (email: any) => {
         sentAt: email.sentAt,
       },
     });
-  } catch (error) {
-    console.error(`Failed to index email ${email.id} into Elasticsearch:`, (error as any).message);
+  } catch (error: any) {
+    console.error(`Failed to index email ${email.id} into Elasticsearch:`, error.message);
     // Non-fatal, app continues
   }
 };
@@ -38,20 +38,18 @@ export const searchEmails = async (query: string, campaignId?: string) => {
       must.push({ match: { campaignId } });
     }
 
-    const result: any = await (esClient.search as any)({
+    const result = await esClient.search({
       index: 'emails',
-      body: {
-        query: {
-          bool: {
-            must,
-          },
+      query: {
+        bool: {
+          must,
         },
       },
     });
 
     return result.hits.hits.map((hit: any) => hit._source);
-  } catch (error) {
-    console.error('Elasticsearch search failed:', (error as any).message);
+  } catch (error: any) {
+    console.error('Elasticsearch search failed:', error.message);
     return [];
   }
 };

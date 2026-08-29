@@ -12,27 +12,25 @@ export const initElasticsearch = async () => {
     const index = 'emails';
     const exists = await esClient.indices.exists({ index });
     if (!exists) {
-      await (esClient.indices.create as any)({
+      await esClient.indices.create({
         index,
-        body: {
-          mappings: {
-            properties: {
-              id: { type: 'keyword' },
-              campaignId: { type: 'keyword' },
-              recipient: { type: 'text', fields: { keyword: { type: 'keyword' } } },
-              subject: { type: 'text' },
-              body: { type: 'text' },
-              status: { type: 'keyword' },
-              scheduledAt: { type: 'date' },
-              sentAt: { type: 'date' },
-            },
+        mappings: {
+          properties: {
+            id: { type: 'keyword' },
+            campaignId: { type: 'keyword' },
+            recipient: { type: 'text', fields: { keyword: { type: 'keyword' } } },
+            subject: { type: 'text' },
+            body: { type: 'text' },
+            status: { type: 'keyword' },
+            scheduledAt: { type: 'date' },
+            sentAt: { type: 'date' },
           },
         },
       });
       console.log('Elasticsearch index "emails" created.');
     }
-  } catch (error) {
-    console.error('Elasticsearch initialization failed (non-fatal):', (error as any).message);
+  } catch (error: any) {
+    console.error('Elasticsearch initialization failed (non-fatal):', error.message);
   }
 };
 
